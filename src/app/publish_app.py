@@ -8,16 +8,15 @@ import json
 import threading
 import pandas as pd
 #*
-'''lk = linkkit.LinkKit(
+lk = linkkit.LinkKit(
     host_name="cn-shanghai",
     product_key="",
     device_name="",
     device_secret="")
 lk.enable_logger(logging.DEBUG)
 
-mqtt_topic_post = f'/sys/k255wPG4Ykb/KWZRtest001/thing/event/property/post'  # 用于发布消息的主题
-# mqtt_topic_post_reply = f'/sys/k255wPG4Ykb/KWZRtest001/thing/event/property/post_reply'
-'''
+mqtt_topic_post = f''  # 用于发布消息的主题
+
 
 # 上传数据的线程控制变量
 stop_upload_flag = False

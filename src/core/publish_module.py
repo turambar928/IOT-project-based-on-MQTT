@@ -289,7 +289,7 @@ while True:
 # MQTT配置参数
 MQTT_BROKER = ''  # MQTT代理服务器的域名或IP地址
 MQTT_PORT = 1883                  # MQTT代理服务器的端口
-MQTT_TOPIC = '/sys/k24ta6M9Wm2/device1/thing/event/property/post'        # 用于发布消息的主题
+MQTT_TOPIC = ''        # 用于发布消息的主题
 
 def on_connect(client, userdata, flags, rc):
     """
