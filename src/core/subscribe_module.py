@@ -10,18 +10,19 @@ import paho.mqtt.client as mqtt
 import schedule
 from datetime import datetime
 import src.core.global_var as gv
-'''
+
+
 # MQTT 连接配置
-YourHost = "k24ta6M9Wm2.iot-as-mqtt.cn-shanghai.aliyuncs.com"
-YourClientId = "k24ta6M9Wm2.device1"
-YourIotInstanceId = "iot-06z00iczh7cuxzc"
-YourConsumerGroupId = "DEFAULT_GROUP"
-ALIBABA_CLOUD_ACCESS_KEY_ID = "LTAI5tNRm2i6koqHEX6KP6Cq"
-ALIBABA_CLOUD_ACCESS_KEY_SECRET = "HQiZbOXkXgo9d23lyCLh5MAxZH3v1W"
+YourHost = ""
+YourClientId = ""
+YourIotInstanceId = ""
+YourConsumerGroupId = ""
+ALIBABA_CLOUD_ACCESS_KEY_ID = ""
+ALIBABA_CLOUD_ACCESS_KEY_SECRET = ""
 conn = None
 
 csv_file = "data/forecast_data/receive_data.csv"
-'''
+
 
 def disconnect_mqtt():
     global conn

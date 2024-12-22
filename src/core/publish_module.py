@@ -14,11 +14,11 @@ output_file = "THPData/THP_data.csv"
 publish_file = "THPData/THP_data.csv"
 '''
 # 定义变量
-product_key = "k24ta6M9Wm2"
-device_name = "device1"
-device_secret = "df8491caebb9893dc8a34c0adf55b694"
+product_key = ""
+device_name = ""
+device_secret = ""
 username = f"{device_name}&{product_key}"
-password = "0A0583FF5371FE0A3C42447EE069E3DA01E71FF3"
+password = ""
 mqtt_broker = f"{product_key}.iot-as-mqtt.cn-shanghai.aliyuncs.com"  # MQTT代理服务器的域名或IP地址
 mqtt_port = 1883  # MQTT代理服务器的端口
 mqtt_topic_post = f'/sys/{product_key}/{device_name}/thing/event/property/post'  # 用于发布消息的主题

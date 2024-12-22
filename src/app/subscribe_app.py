@@ -6,10 +6,10 @@ import src.core.subscribe_module as module
 
 '''
 app = Flask(__name__)
-app.secret_key = '4e616c5067e8c28492a1e25cce88bc7d'
-product_key = "k24ta6M9Wm2"
-device_name = "device1"
-device_secret = "df8491caebb9893dc8a34c0adf55b694"
+app.secret_key = ''
+product_key = ""
+device_name = ""
+device_secret = ""
 mqtt_topic_post = f'/sys/{product_key}/{device_name}/thing/event/property/post'  # 用于发布消息的主题
 mqtt_topic_set = f'/sys/{product_key}/{device_name}/thing/service/property/set'  # 用于发布消息的主题
 import src.core.global_var as gv

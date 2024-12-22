@@ -10,9 +10,9 @@ import pandas as pd
 #*
 '''lk = linkkit.LinkKit(
     host_name="cn-shanghai",
-    product_key="k255wPG4Ykb",
-    device_name="KWZRtest001",
-    device_secret="34971c1e3bb9548e8bfcfb65e581b5f0")
+    product_key="",
+    device_name="",
+    device_secret="")
 lk.enable_logger(logging.DEBUG)
 
 mqtt_topic_post = f'/sys/k255wPG4Ykb/KWZRtest001/thing/event/property/post'  # 用于发布消息的主题
