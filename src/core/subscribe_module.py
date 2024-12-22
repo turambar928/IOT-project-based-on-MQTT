@@ -17,7 +17,8 @@ YourHost = ""
 YourClientId = ""
 YourIotInstanceId = ""
 YourConsumerGroupId = ""
-
+#LIBABA_CLOUD_ACCESS_KEY_ID = ""
+#ALIBABA_CLOUD_ACCESS_KEY_SECRET = ""
 conn = None
 
 csv_file = "data/forecast_data/receive_data.csv"
