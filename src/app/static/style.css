@@ -1,0 +1,332 @@
+.publish-app,
+.publish-app * {
+  box-sizing: border-box;
+}
+
+.publish-app {
+  /* 更换为红、黄、橙色调的背景渐变 */
+  background: linear-gradient(135deg,
+      rgba(255, 69, 0, 1) 0%,      /* 橙红色 */
+      rgba(255, 140, 0, 1) 50%,    /* 深橙色 */
+      rgba(255, 215, 0, 1) 100%);  /* 金黄色 */
+  width: var(--app-width);
+  height: var(--app-height);
+  position: relative;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  /* 添加装饰性花纹 */
+  /* 使用 ::before 和 ::after 添加边框装饰 */
+}
+
+.publish-app::before,
+.publish-app::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* 使用 SVG 作为边框装饰 */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* 使用 ::before 添加第一层花纹 */
+.publish-app::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M10,100 C50,10 150,10 190,100 C150,190 50,190 10,100 Z" stroke="rgba(255, 255, 255, 0.2)" stroke-width="5" fill="none"/></svg>');
+  /* 可以调整 opacity 来控制透明度 */
+  opacity: 0.8;
+}
+
+/* 使用 ::after 添加第二层花纹 */
+.publish-app::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" stroke="rgba(255, 255, 255, 0.1)" stroke-width="3" fill="none" /><path d="M100,10 L100,190" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2"/></svg>');
+  /* 可以调整 opacity 来控制透明度 */
+  opacity: 0.6;
+}
+
+/* 右下光效 */
+.right-botton-light,
+.left-up-light {
+  background: linear-gradient(135deg,
+      rgba(255, 99, 71, 1) 0%,    /* 番茄红 */
+      rgba(255, 165, 0, 1) 100%); /* 橙色 */
+  border-radius: 50%;
+  width: 30vw;
+  height: 30vw;
+  position: absolute;
+  filter: blur(250px);
+}
+
+.right-botton-light {
+  left: 93%;
+  top: 62%;
+}
+
+.left-up-light {
+  left: -18%;
+  top: -13%;
+}
+
+.tong-ji {
+  color: #ffffff;
+  text-align: left;
+  font-family: "KronaOne-Regular", sans-serif;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  position: absolute;
+  left: 4%;
+  top: 7%;
+}
+
+/* 连接按钮样式 */
+.connectIoT {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 4%;
+  top: 67%;
+}
+
+.button-connect {
+  background: #FF4500; /* 橙红色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.Connect {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.button-disconnect {
+  background: #FFA500; /* 橙色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.Disconnect {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* 订阅Post按钮样式 */
+.sub-topic {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 4%;
+  top: 75%;
+}
+
+.button-sub-post {
+  background: #FF4500; /* 橙红色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sub-post {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.button-unsub-post {
+  background: #FFA500; /* 橙色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.un-sub-post {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* 发布数据按钮样式 */
+.publish-data {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 4%;
+  top: 83%;
+}
+
+.button-pub-random {
+  background: #FF4500; /* 橙红色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.pub-random {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.button-pub-all {
+  background: #FFA500; /* 橙色 */
+  border-radius: 50px;
+  padding: 1vw 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.pub-all {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* 按钮样式 */
+.button-pub-random,
+.button-pub-all,
+.button-sub-post,
+.button-unsub-post,
+.Connect,
+.Disconnect {
+  cursor: pointer;
+  z-index: 10;
+}
+
+.topic-publish {
+  color: #ffffff;
+  text-align: left;
+  font-family: "OpenSans-Bold", sans-serif;
+  font-size: 2.5vw;
+  position: absolute;
+  left: 4%;
+  top: 58%;
+  width: 28vw;
+}
+
+.thp-data-publish {
+  text-align: left;
+  font-family: "Manrope-Bold", sans-serif;
+  line-height: 5vw;
+  font-weight: 700;
+  position: absolute;
+  left: 4%;
+  top: 18%;
+}
+
+.thp-data-publish-span {
+  color: #ffffff;
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 6vw;
+}
+
+.thp-data-publish-span2 {
+  color: #FFA500; /* 橙色 */
+  font-family: "Manrope-Bold", sans-serif;
+  font-size: 6vw;
+}
+
+.publish {
+  position: absolute;
+  inset: 0;
+}
+
+.logs {
+  background: #e1e0e0;
+  border-radius: 2vw;
+  width: 50vw;
+  height: 54vh;
+  position: absolute;
+  right: 6%;
+  top: 38%;
+  padding: 1vw;
+  /* 内边距 */
+  overflow-y: auto;
+  /* 如果内容超出容器高度，允许滚动 */
+}
+
+.title {
+  color: #FFA500; /* 橙色 */
+  text-align: center;
+  font-family: "OpenSans-Bold", sans-serif;
+  font-size: 3vw;
+  font-weight: 700;
+  position: absolute;
+  right: 36%;
+  top: 30%;
+  width: 30vw;
+}
+
+.illustration {
+  position: absolute;
+  right: 4%;
+  top: 2%;
+  bottom: auto;
+  width: 25vw;
+}

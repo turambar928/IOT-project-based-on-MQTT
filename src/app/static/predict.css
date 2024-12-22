@@ -1,0 +1,224 @@
+.subscriber-app {
+    background: linear-gradient(135deg,
+            rgba(255, 94, 77, 1) 0%, /* 红色 */
+            rgba(255, 140, 0, 1) 100%); /* 橙色 */
+    width: var(--app-width);
+    height: var(--app-height);
+    position: relative;
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* 火焰动画的公共样式 */
+@keyframes flame-animation {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2) translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.8;
+    }
+}
+
+.flame {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.6), transparent);
+    border-radius: 50% 50% 50% 50%;
+    animation: flame-animation 1.5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.flame-left {
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+.flame-right {
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%) rotate(45deg);
+}
+
+/* 现有的右下和左上光效修改为暖色调 */
+.right-botton-light {
+    background: linear-gradient(135deg,
+            rgba(255, 140, 0, 1) 0%, /* 橙色 */
+            rgba(255, 69, 0, 1) 100%); /* 红色 */
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    position: absolute;
+    left: 93%;
+    top: 62%;
+    filter: blur(250px);
+}
+
+.left-up-light {
+    background: linear-gradient(135deg,
+            rgba(255, 140, 0, 1) 0%, /* 橙色 */
+            rgba(255, 69, 0, 1) 100%); /* 红色 */
+    border-radius: 50%;
+    width: 29vw;
+    height: 29vw;
+    position: absolute;
+    left: -18%;
+    top: -13%;
+    filter: blur(250px);
+}
+
+.tong-ji {
+    color: #ffffff;
+    text-align: left;
+    font-family: "KronaOne-Regular", sans-serif;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    position: absolute;
+    left: 4%;
+    top: 7%;
+}
+
+.thp-data-publish {
+    text-align: left;
+    font-family: "Manrope-Bold", sans-serif;
+    line-height: 5vw;
+    font-weight: 700;
+    position: absolute;
+    left: 4%;
+    top: 18%;
+}
+
+.thp-data-publish-span {
+    color: #ffffff;
+    font-family: "Manrope-Bold", sans-serif;
+    font-size: 6vw;
+}
+
+.thp-data-subscriber-span2 {
+    color: #ff8c00; /* 修改为橙色 */
+    font-family: "Manrope-Bold", sans-serif;
+    font-size: 6vw;
+}
+
+.chart-container {
+    position: absolute;
+    background: #ffe5b4; /* 修改为暖色背景 */
+    /* 内边距 */
+    overflow-y: auto;
+    border-radius: 2vw;
+    width: 80vw;
+    height: 54vh;
+    left: 5vw;
+    margin-top: 250px;
+    margin-left: 90px;
+    top: 30vh;
+    padding: 3vh 5vw;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    color:#ff8c00
+}
+
+.chart-container1, .chart-container2, .chart-container3 {
+    width: 80vw;
+    height: 54vh;
+}
+
+.title {
+    color: #ff4500; /* 修改为橙红色 */
+    text-align: right;
+    font-family: "OpenSans-Bold", sans-serif;
+    font-size: 3vw;
+    font-weight: 700;
+    position: absolute;
+    right: 36%;
+    top: 25%;
+    width: 30vw;
+}
+
+.illustration {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    bottom: auto;
+    width: 23vw;
+}
+
+/* 添加火焰动画的容器 */
+.subscriber-app::before,
+.subscriber-app::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.8), rgba(255, 69, 0, 0.6), transparent);
+    border-radius: 50% 50% 50% 50%;
+    animation: flame-animation 1.5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.subscriber-app::before {
+    left: 10px;
+    bottom: 10px;
+    transform: rotate(-30deg);
+}
+
+.subscriber-app::after {
+    right: 10px;
+    bottom: 10px;
+    transform: rotate(30deg);
+}
+
+/* 可选：添加更多火焰元素以增强效果 */
+.flame-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 让火焰不影响页面交互 */
+}
+
+.flame-container .flame {
+    /* 多个火焰可以随机分布在边缘 */
+}
+
+/* 示例：在页面四周添加多个火焰 */
+.flame-top, .flame-bottom, .flame-left-side, .flame-right-side {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.6), transparent);
+    border-radius: 50% 50% 50% 50%;
+    animation: flame-animation 1.5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.flame-top {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.flame-bottom {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.flame-left-side {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.flame-right-side {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}

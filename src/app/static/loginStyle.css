@@ -1,0 +1,194 @@
+.register-page,
+.register-page * {
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* 全局背景 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #ffefd5, #ff6347, #ff4500);
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* 主容器样式 */
+.register-page {
+  background: rgba(255, 244, 230, 0.9);
+  border: 2px solid rgba(255, 128, 72, 0.8);
+  box-shadow: 0 15px 50px rgba(255, 111, 97, 0.5), inset 0 -10px 15px rgba(255, 200, 150, 0.5);
+  border-radius: 30px;
+  width: 600px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: dropIn 1s ease-out;
+}
+
+/* 动画：主容器入场效果 */
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 输入框通用样式 */
+input {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 211, 155, 0.9));
+  border: 2px solid rgba(255, 128, 72, 0.8);
+  border-radius: 30px;
+  width: 90%;
+  height: 50px;
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #d74f33;
+  box-shadow: 0 5px 15px rgba(255, 150, 100, 0.5);
+  transition: all 0.4s ease;
+}
+
+input:focus {
+  outline: none;
+  background: linear-gradient(135deg, rgba(255, 240, 210, 1), rgba(255, 180, 120, 1));
+  border-color: #ff6f61;
+  box-shadow: 0 10px 20px rgba(255, 111, 97, 0.8), inset 0 -2px 5px rgba(255, 200, 150, 0.8);
+}
+
+/* 标签样式 */
+label {
+  font-size: 18px;
+  color: #ff4500;
+  align-self: flex-start;
+  margin: 5px 10%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 提交按钮样式 */
+.rectangle-4 {
+  background: linear-gradient(90deg, #ff4500, #ff6347, #ff7f50);
+  border: none;
+  border-radius: 30px;
+  width: 90%;
+  height: 50px;
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.7);
+}
+
+.rectangle-4:hover {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 12px 25px rgba(255, 111, 97, 0.9);
+  background: linear-gradient(90deg, #ff6347, #ff4500, #ff6347);
+}
+
+/* 按钮点击动画 */
+.rectangle-4:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 5px 10px rgba(255, 111, 97, 0.8);
+}
+
+/* 标题样式 */
+.io-t-client-platform-thp-data-sensor-subscription {
+  color: #ff4500;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+  background: linear-gradient(to right, #ff4500, #ff6347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 2s infinite alternate;
+}
+
+/* 动画：标题文字闪烁 */
+@keyframes glowText {
+  from {
+    text-shadow: 2px 2px 5px rgba(255, 150, 100, 0.8);
+  }
+  to {
+    text-shadow: 2px 2px 20px rgba(255, 100, 50, 1);
+  }
+}
+
+/* 背景装饰圆环 */
+.rectangle-6,
+.rectangle-7 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.rectangle-6 {
+  background: radial-gradient(circle at center, rgba(255, 99, 71, 0.6), rgba(255, 200, 150, 0.2));
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -200px;
+  animation: rotateCircle 8s linear infinite;
+}
+
+.rectangle-7 {
+  background: radial-gradient(circle at center, rgba(255, 255, 128, 0.5), rgba(255, 175, 75, 0.2));
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -150px;
+  animation: rotateCircleReverse 8s linear infinite;
+}
+
+/* 动画：装饰旋转 */
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCircleReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* 输入框动画 */
+.input-ClientID,
+.input-AccessKeyID,
+.input-AccessKeySecret {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

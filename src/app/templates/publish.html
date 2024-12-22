@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/vars.css"/>
+    <link rel="stylesheet" href="../static/style.css"/>
+    <link rel="icon" href="../static/icon.jpg"/>
+
+    <style>
+        /* 重置样式 */
+        a,
+        button,
+        input,
+        select,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+            appearance: none;
+            background: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 现有的样式调整 */
+        .publish-app,
+        .publish-app * {
+            box-sizing: border-box;
+        }
+
+        .publish-app {
+            background: linear-gradient(135deg,
+            rgba(255, 69, 0, 1) 0%, /* 橙红色 */ rgba(255, 140, 0, 1) 50%, /* 深橙色 */ rgba(255, 215, 0, 1) 100%); /* 金黄色 */
+            width: var(--app-width);
+            height: var(--app-height);
+            position: relative;
+            box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* 左右光效调整 */
+        .right-botton-light,
+        .left-up-light {
+            background: linear-gradient(135deg,
+            rgba(255, 99, 71, 1) 0%, /* 番茄红 */ rgba(255, 165, 0, 1) 100%); /* 橙色 */
+            border-radius: 50%;
+            width: 30vw;
+            height: 30vw;
+            position: absolute;
+            filter: blur(250px);
+        }
+
+        .right-botton-light {
+            left: 93%;
+            top: 52%; /* 上移 */
+        }
+
+        .left-up-light {
+            left: -18%;
+            top: -18%; /* 上移 */
+        }
+
+        .tong-ji {
+            color: #ffffff;
+            text-align: left;
+            font-family: "KronaOne-Regular", sans-serif;
+            font-size: 1.5vw;
+            text-transform: uppercase;
+            position: absolute;
+            left: 4%;
+            top: 2%; /* 上移 */
+        }
+
+        /* 连接按钮样式 */
+        .connectIoT {
+            display: flex;
+            flex-direction: row;
+            gap: 2vw;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: absolute;
+            left: 4%;
+            top: 57%; /* 上移 */
+        }
+
+        .button-connect {
+            background: #FF4500; /* 橙红色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .Connect {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .button-disconnect {
+            background: #FFA500; /* 橙色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .Disconnect {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* 订阅Post按钮样式 */
+        .sub-topic {
+            display: flex;
+            flex-direction: row;
+            gap: 2vw;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: absolute;
+            left: 4%;
+            top: 65%; /* 上移 */
+        }
+
+        .button-sub-post {
+            background: #FF4500; /* 橙红色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .sub-post {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .button-unsub-post {
+            background: #FFA500; /* 橙色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .un-sub-post {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* 发布数据按钮样式 */
+        .publish-data {
+            display: flex;
+            flex-direction: row;
+            gap: 2vw;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: absolute;
+            left: 4%;
+            top: 73%; /* 上移 */
+        }
+
+        .button-pub-random {
+            background: #FF4500; /* 橙红色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .pub-random {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .button-pub-all {
+            background: #FFA500; /* 橙色 */
+            border-radius: 50px;
+            padding: 1vw 2vw;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .pub-all {
+            color: #ffffff;
+            text-align: center;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* 按钮样式 */
+        .button-pub-random,
+        .button-pub-all,
+        .button-sub-post,
+        .button-unsub-post,
+        .Connect,
+        .Disconnect {
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .topic-publish {
+            color: #ffffff;
+            text-align: left;
+            font-family: "OpenSans-Bold", sans-serif;
+            font-size: 2.5vw;
+            position: absolute;
+            left: 4%;
+            top: 48%; /* 上移 */
+            width: 28vw;
+        }
+
+        .thp-data-publish {
+            text-align: left;
+            font-family: "Manrope-Bold", sans-serif;
+            line-height: 5vw;
+            font-weight: 700;
+            position: absolute;
+            left: 4%;
+            top: 13%; /* 上移 */
+        }
+
+        .thp-data-publish-span {
+            color: #ffffff;
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 6vw;
+        }
+
+        .thp-data-publish-span2 {
+            color: #FFA500; /* 橙色 */
+            font-family: "Manrope-Bold", sans-serif;
+            font-size: 6vw;
+        }
+
+        .publish {
+            position: absolute;
+            inset: 0;
+        }
+
+        .logs {
+            background: #ff8c00;
+            border-radius: 2vw;
+            width: 50vw;
+            height: 54vh;
+            position: absolute;
+            right: 6%;
+            top: 38%;
+            padding: 1vw;
+            /* 内边距 */
+            overflow-y: auto;
+            color:#ffffff
+        }
+
+        .title {
+            color: #FFA500; /* 橙色 */
+            text-align: center;
+            font-family: "OpenSans-Bold", sans-serif;
+            font-size: 3vw;
+            font-weight: 700;
+            position: absolute;
+            right: 36%;
+            top: 30%;
+            width: 30vw;
+        }
+
+        .illustration {
+            position: absolute;
+            right: 4%;
+            top: 2%;
+            bottom: auto;
+            width: 25vw;
+        }
+    </style>
+    <title>发布端</title>
+</head>
+
+<body>
+<div class="publish-app">
+    <div class="right-botton-light"></div>
+    <div class="left-up-light"></div>
+    <div class="tong-ji">
+        MQTT物联网平台
+    </div>
+
+    <div class="connectIoT">
+        <div class="button-connect">
+            <div class="Connect">发起连接</div>
+        </div>
+        <div class="button-disconnect">
+            <div class="Disconnect">断开连接</div>
+        </div>
+    </div>
+
+    <div class="publish-data">
+        <div class="button-pub-random">
+            <div class="pub-random">任意发布</div>
+        </div>
+        <div class="button-pub-all">
+            <div class="pub-all">发布全部</div>
+        </div>
+    </div>
+
+    <div class="topic-publish">选择操作</div>
+    <div class="thp-data-publish">
+      <span>
+        <span class="thp-data-publish-span">
+          物联网平台——
+        </span>
+        <span class="thp-data-publish-span2">发布端</span>
+      </span>
+    </div>
+    <div class="publish">
+        <div class="logs"></div>
+        <div class="title">发布输出</div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var connected = false;  // 跟踪连接状态
+        var statusInterval; // 用于定期检查发布状态的变量
+        var publishing = false; // 跟踪是否正在发布数据
+
+        function updateLog(timestamp, message) {
+            $('.logs').append('<div>' + timestamp + ': ' + message + '</div>');
+        }
+
+        function Log(message) {
+            $('.logs').append('<div>' + message + '</div>');
+        }
+
+        $('.button-connect').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/connect',
+                success: function (response) {
+                    connected = response.status === 'connected';
+                    updateLog(response.timestamp, response.message);
+                    // 更新按钮状态
+                    $('.button-connect').prop('disabled', connected);
+                    $('.button-disconnect').prop('disabled', !connected);
+                },
+                error: function () {
+                    updateLog('Error: Unable to connect.');
+                }
+            });
+        });
+
+        $('.button-disconnect').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/disconnect',
+                success: function (response) {
+                    connected = response.status === 'disconnected';
+                    updateLog(response.timestamp, response.message);
+                }
+            });
+        });
+
+        $('.button-pub-random').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/publishRandom',
+                success: function (response) {
+                    connected = response.status === 'success';
+                    updateLog(response.timestamp, response.message);
+                }
+            });
+        });
+
+        function checkPublishStatus() {
+            $.ajax({
+                type: 'GET',
+                url: '/publishStatus',
+                success: function (response) {
+                    if (response.error) {
+                        Log('Error: ' + response.error);
+                        clearInterval(statusInterval);  // 停止检查状态
+                    } else if (response.complete) {
+                        Log('Publish complete. Total entries posted: ' + response.count);
+                        clearInterval(statusInterval);  // 停止检查状态
+                    } else {
+                        Log('Published ' + response.count + ' entries so far...');
+                    }
+                }
+            });
+        }
+
+        $('.button-pub-all').click(function () {
+            if (!publishing) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/startPublish',
+                    success: function (response) {
+                        if (response.status === 'started') {
+                            publishing = true;
+                            $('.pub-all').text('中断发布'); // 更改按钮文本
+                            // 每秒检查一次状态
+                            statusInterval = setInterval(checkPublishStatus, 1000); // 开始定期检查发布状态
+                        }
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: '/stopPublish', // 停止发布的路由
+                    success: function (response) {
+                        publishing = false;
+                        $('.pub-all').text('发布全部'); // 恢复按钮文本
+                        // 如果有必要，显示最终发布状态
+                        clearInterval(statusInterval);  // 停止检查状态
+                        Log('Publishing stopped by user.');
+                    }
+                });
+            }
+        });
+
+        $('.button-sub-post').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/subPost',
+                success: function (response) {
+                    connected = response.status === 'success';
+                    updateLog(response.timestamp, response.message);
+                },
+                error: function (xhr, status, error) {
+                    updateLog('Error: ' + error);  // 处理错误情况
+                }
+            });
+        });
+
+        $('.button-unsub-post').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/unSubPost',
+                success: function (response) {
+                    connected = response.status === 'success';
+                    updateLog(response.timestamp, response.message);
+                },
+                error: function (xhr, status, error) {
+                    updateLog('Error: ' + error);  // 处理错误情况
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>
