@@ -10,7 +10,7 @@
 运行项目：
 1. 安装python3.6以上版本
 2. 使用anaconda创建虚拟环境：
-'''
+'''python
 conda env create -f environment.yml
 '''
 3. 激活虚拟环境
