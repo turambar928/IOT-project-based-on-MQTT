@@ -8,3 +8,23 @@
 前端——王沫涵
 
 运行项目：
+1. 安装python3.6以上版本
+2. 使用anaconda创建虚拟环境：
+'''
+conda env create -f environment.yml
+'''
+3. 激活虚拟环境
+'''
+conda activate THPSys
+'''
+4. 安装依赖
+5. 运行项目，确保有一个运行的MQTT服务器，将源代码中的对应参数修改为您服务器的对应参数
+6. 运行发布端：
+'''
+python -m src.app.publish_app
+'''
+7. 运行订阅端：
+'''
+python -m src.app.subscribe_app
+'''
+8. 在浏览器中打开网址  http://127.0.0.1:5000/  进行查看
